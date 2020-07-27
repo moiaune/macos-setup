@@ -1,0 +1,86 @@
+{
+  "telemetry.enableCrashReporter": true,
+  "telemetry.enableTelemetry": false,
+  "explorer.openEditors.visible": 0,
+  "editor.snippetSuggestions": "top",
+  "emmet.showAbbreviationSuggestions": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "workbench.colorTheme": "Just Black",
+  "window.zoomLevel": 0,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontSize": 14,
+  "files.autoSave": "off",
+  "editor.fontFamily": "Anonymous Pro",
+  "markdown.preview.fontSize": 14,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.minimap.enabled": false,
+  "eslint.enable": true,
+  // "files.exclude": { "**/.*": true },
+  "eslint.validate": [
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    }
+  ],
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.suggestSelection": "first",
+  "[javascript]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "comment.block"
+        ],
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#ff1493"
+        }
+      },
+      {
+        "scope": [
+          "keyword.operator.logical",
+          "keyword.operator.arithmetic",
+          "keyword.operator.assignment",
+          "keyword.operator.bitwise"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "editor.lineHeight": 0,
+  "editor.fontSize": 16
+}
