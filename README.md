@@ -25,6 +25,7 @@ brew cask install iterm2
 
 1. Preferences -> Appearance -> General -> Theme = Minimal
 2. Preferences -> Appearance -> Tabs -> Show tab even when there is only one tab
+2. Preferences -> Appearance -> Tabs -> Uncheck "Stretch tabs to fill bar"
 3. Preferences -> Profiles -> General -> Reuse previous session's directory
 4. Preferences -> Profiles -> Colors -> Foreground = RGB(0, 255, 0)
 5. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
