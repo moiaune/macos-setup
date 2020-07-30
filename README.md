@@ -127,6 +127,12 @@ brew cask install visual-studio-code
 7. View -> Show Status Bar
 8. View -> Show Path Bar
 
+## Dock
+
+1. System Preferences -> Dock -> Size -> Smallest
+2. System Preferences -> Dock -> Position on screen -> Right
+2. System Preferences -> Dock -> Check "Automatically hide and show the dock"
+
 ## Desktop
 
 1. Date & Time Preferences -> Clock -> Show Date (check)
