@@ -96,6 +96,12 @@ sudo npm install -g lite-server eslint
 mkdir ~/code
 ```
 
+### Install Anonymous Pro Font
+
+```
+https://www.marksimonson.com/fonts/view/anonymous-pro
+```
+
 ### Visual Studio Code
 
 ```bash
