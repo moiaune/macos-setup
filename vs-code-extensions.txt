@@ -12,5 +12,6 @@ octref.vetur
 patbenatar.advanced-new-file
 vscode-icons-team.vscode-icons
 WallabyJs.quokka-vscode
+wayou.vscode-todo-highlight
 wix.vscode-import-cost
 Zignd.html-css-class-completion
