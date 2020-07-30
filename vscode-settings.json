@@ -6,7 +6,6 @@
   "emmet.showAbbreviationSuggestions": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
   "workbench.colorTheme": "Just Black",
   "window.zoomLevel": 0,
   "workbench.iconTheme": "vscode-icons",
@@ -82,5 +81,6 @@
     ]
   },
   "editor.lineHeight": 0,
-  "editor.fontSize": 16
+  "editor.fontSize": 17,
+  "editor.renameOnType": true
 }
