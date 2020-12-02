@@ -1,67 +1,41 @@
 {
-  "telemetry.enableCrashReporter": true,
-  "telemetry.enableTelemetry": false,
-  "explorer.openEditors.visible": 0,
+  // Editor cofigurations
   "editor.snippetSuggestions": "top",
-  "emmet.showAbbreviationSuggestions": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.formatOnPaste": false,
-  "workbench.colorTheme": "Just Black",
-  "window.zoomLevel": 0,
-  "workbench.iconTheme": "vscode-icons",
   "editor.fontLigatures": true,
-  "terminal.integrated.fontSize": 14,
-  "files.autoSave": "off",
-  "editor.fontFamily": "Anonymous Pro",
-  "markdown.preview.fontSize": 14,
+  "editor.fontFamily": "Monaco",
   "editor.tabSize": 2,
   "editor.detectIndentation": true,
   "editor.minimap.enabled": false,
-  "eslint.enable": true,
-  // "files.exclude": { "**/.*": true },
-  "eslint.validate": [
-    {
-      "language": "vue",
-      "autoFix": true
-    },
-    {
-      "language": "typescript",
-      "autoFix": true
-    },
-    {
-      "language": "html",
-      "autoFix": true
-    },
-    {
-      "language": "javascript",
-      "autoFix": true
-    }
-  ],
-  "workbench.startupEditor": "newUntitledFile",
+  "editor.lineHeight": 0,
+  "editor.fontSize": 16,
+  "editor.renameOnType": true,
   "editor.suggestSelection": "first",
-  "[javascript]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
-  },
+
+  // Telemetry
+  "telemetry.enableCrashReporter": true,
+  "telemetry.enableTelemetry": false,
+
+  // General
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.iconTheme": "vscode-icons",
+  "window.zoomLevel": 0,
+  "terminal.integrated.fontSize": 14,
+  "explorer.openEditors.visible": 0,
+  "files.autoSave": "off",
+  "workbench.startupEditor": "newUntitledFile",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // Extensions
+  "emmet.showAbbreviationSuggestions": false,
+  "markdown.preview.fontSize": 14,
+  "eslint.validate": ["vue", "typescript", "html", "javascript"],
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": [
-          "comment",
-          "comment.block"
-        ],
+        "scope": ["comment", "comment.block"],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#ff1493"
@@ -80,7 +54,46 @@
       }
     ]
   },
-  "editor.lineHeight": 0,
-  "editor.fontSize": 17,
-  "editor.renameOnType": true
+  "todohighlight.keywords": [
+    "REVIEW:",
+    {
+      "text": "NOTE:",
+      "color": "#ffffff",
+      "backgroundColor": "grey",
+      "overviewRulerColor": "grey"
+    }
+  ],
+
+  // Language specific settings
+  "[javascript]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "[powershell]": {
+    "editor.tabSize": 4
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
