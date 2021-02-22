@@ -1,8 +1,7 @@
-// Place your key bindings in this file to override the defaults
 [
   {
-    "key": "cmd+n", // "cmd+n" on mac
-    "command": "extension.advancedNewFile",
+    "key": "cmd+alt+n",
+    "command": "extension.advancedNewFile"
   },
   {
     "key": "cmd+1",
