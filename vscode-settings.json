@@ -30,6 +30,7 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
 
   // Extensions
+  "gitlens.codeLens.enabled": false,
   "emmet.showAbbreviationSuggestions": false,
   "markdown.preview.fontSize": 14,
   "eslint.validate": ["vue", "typescript", "html", "javascript"],
