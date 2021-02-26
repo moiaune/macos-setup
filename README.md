@@ -17,21 +17,6 @@ xcode-select --install
 brew update
 ```
 
-### iTerm2
-
-```bash
-brew cask install iterm2
-```
-
-1. Preferences -> Appearance -> General -> Theme = Minimal
-2. Preferences -> Appearance -> Tabs -> Show tab even when there is only one tab
-2. Preferences -> Appearance -> Tabs -> Uncheck "Stretch tabs to fill bar"
-3. Preferences -> Profiles -> General -> Reuse previous session's directory
-4. Preferences -> Profiles -> Colors -> Foreground = RGB(0, 255, 0)
-5. Preferences -> Profiles -> Text -> Cursor -> Vertical Bar
-6. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
-7. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
-
 ### Install and set default shell
 
 ```bash
@@ -44,7 +29,27 @@ sudo nano /etc/shells
 chsh -s /usr/local/bin/pwsh
 ```
 
-Close and reopen iTerm2.
+Close and reopen terminal.
+
+### iTerm2
+
+```powershell
+brew cask install iterm2
+iwr "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Dracula%2B.itermcolors" -outfile "~/Downloads/Dracula+.itermcolors"
+iwr "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -outfile "~/Downloads/Gruvbox Dark.itermcolors"
+iwr "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Andromeda.itermcolors" -outfile "~/Downloads/Andromeda.itermcolors"
+```
+
+1. Preferences -> Appearance -> General -> Theme = Minimal
+2. Preferences -> Appearance -> Tabs -> Show tab even when there is only one tab
+2. Preferences -> Appearance -> Tabs -> Uncheck "Stretch tabs to fill bar"
+3. Preferences -> Profiles -> General -> Reuse previous session's directory
+4. Preferences -> Profiles -> Colors -> Color Presets -> Import -> Choose your .itermcolors file
+4. Preferences -> Profiles -> Colors -> Color Presets -> Choose color scheme
+5. Preferences -> Profiles -> Text -> Cursor -> Vertical Bar
+6. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
+7. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
+
 
 ### Install git and download project files
 
