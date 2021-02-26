@@ -146,6 +146,23 @@ Copy-Item -Path "vscode-settings.json" -Destination "~/Library/Application Suppo
 Copy-Item -Path "vscode-keybindings.json" -Destination "~/Library/Application Support/Code/User/keybindings.json"
 ```
 
+### Other Applications
+
+```powershell
+brew install spotify
+brew install insomnia
+brew install microsoft-teams
+brew install discord
+brew install keepassxc
+brew install time-out
+brew install terraform
+brew install azure-cli
+brew install google-chrome
+
+brew tap azure/functions
+brew install azure-functions-core-tools@3
+```
+
 ## Finder
 
 1. Preferences -> General -> Uncheck "CDs, DVDs and iPods"
