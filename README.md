@@ -46,7 +46,7 @@ chsh -s /usr/local/bin/pwsh
 
 Close and reopen iTerm2.
 
-### Setup OH-MY-POSH
+### Setup Powershell profile and modules
 
 First, install FantasqueSansMono Powerline font.
 
@@ -58,10 +58,12 @@ First, install FantasqueSansMono Powerline font.
 iwr -Uri "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip" -OutFile "~/Downloads/FantasqueSansMono.zip"
 ```
 
-Then, install "oh-my-posh" from PSGallery, and create our Powershell profile.
+Then, install modules from PSGallery, and create our Powershell profile.
 
 ```powershell
-Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
+Install-Module -Name "oh-my-posh" -Scope CurrentUser -AllowPrerelease
+Install-Module -Name "Get-ChildItemColor" -Scope CurrentUser -AllowClobber
+
 cd ~
 nano $profile # Copy content from ./dotfiles/Microsoft.PowerShell_profile.ps1
 . $profile

@@ -1,6 +1,8 @@
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
+Import-Module -Name Get-ChildItemColor
+
 # ------------------------------------------------
 # PROMPT
 # ------------------------------------------------
