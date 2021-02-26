@@ -78,7 +78,7 @@ Then, install modules from PSGallery, and create our Powershell profile.
 Install-Module -Name "oh-my-posh" -Scope CurrentUser -AllowPrerelease
 Install-Module -Name "Get-ChildItemColor" -Scope CurrentUser -AllowClobber
 
-Copy-Item -Path "./dotfiles/Microsoft.PowerShell_profile.ps1" -Destination $profile
+Copy-Item -Path "./Microsoft.PowerShell_profile.ps1" -Destination $profile
 ```
 
 Close and reopen iTerm2.
