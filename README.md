@@ -31,23 +31,47 @@ brew cask install iterm2
 5. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
 5. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
 
-### Golang
+### Shell
 
 ```bash
-brew install go
-go get github.com/j18e/shell-prompt
+brew install bash
+brew install powershell
+
+# Make sure both /usr/local/bin/bash and /usr/local/bin/pwsh is represented
+sudo nano /etc/shells
+
+# Change default shell to pwsh
+chsh -s /usr/local/bin/pwsh
 ```
 
-### Bash
+Close and reopen iTerm2.
 
-```bash
-brew install bash # latest version of bash
-sudo nano /etc/shells
-# add /usr/local/bin/bash as first entry to the list
-chsh -s /usr/local/bin/bash
+### Setup OH-MY-POSH
+
+First, install FantasqueSansMono Powerline font.
+
+1. Download font
+2. Unzip
+3. Open .ttf files
+
+```powershell
+iwr -Uri "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip" -OutFile "~/Downloads/FantasqueSansMono.zip"
+```
+
+Then, install "oh-my-posh" from PSGallery, and create our Powershell profile.
+
+```powershell
+Install-Module oh-my-posh -Scope CurrentUser -AllowPrerelease
 cd ~
-nano .bash_profile
-# Copy content from ./dotfiles/.bash_profile in this repo
+nano $profile # Copy content from ./dotfiles/Microsoft.PowerShell_profile.ps1
+. $profile
+```
+
+### Setup bash profile
+
+```powershell
+cd ~
+nano .bash_profile # Copy content from ./dotfiles/.bash_profile
 ```
 
 ### Git
