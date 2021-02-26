@@ -28,8 +28,9 @@ brew cask install iterm2
 2. Preferences -> Appearance -> Tabs -> Uncheck "Stretch tabs to fill bar"
 3. Preferences -> Profiles -> General -> Reuse previous session's directory
 4. Preferences -> Profiles -> Colors -> Foreground = RGB(0, 255, 0)
-5. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
-5. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
+5. Preferences -> Profiles -> Text -> Cursor -> Vertical Bar
+6. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
+7. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
 
 ### Shell
 
