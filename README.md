@@ -1,6 +1,6 @@
 # MacOS Setup
 
-DISCLAIMER: This setup is heavily inpsired by [w3cj](https://github.com/w3cj/dotfiles) and [codinggarden](https://github.com/codinggarden/vscode-settings).
+My current MacOS setup, using Powershell as default shell.
 
 ## Applications
 
@@ -32,10 +32,9 @@ brew cask install iterm2
 6. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
 7. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
 
-### Shell
+### Install and set default shell
 
 ```bash
-brew install bash
 brew install powershell
 
 # Make sure both /usr/local/bin/bash and /usr/local/bin/pwsh is represented
@@ -47,17 +46,26 @@ chsh -s /usr/local/bin/pwsh
 
 Close and reopen iTerm2.
 
-### Setup Powershell profile and modules
-
-First, install FantasqueSansMono Powerline font.
-
-1. Download font
-2. Unzip
-3. Open .ttf files
+### Install git and download project files
 
 ```powershell
-iwr -Uri "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip" -OutFile "~/Downloads/FantasqueSansMono.zip"
+brew install git
+mkdir ~/code && cd ~/code
+git clone git@github.com:madsaune/macos-setup.git
+cd macos-setup
 ```
+
+### Setup Powershell profile and modules
+
+First, install `FantasqueSansMono` powerline font.
+
+1. Download font
+  ```powershell
+  iwr -Uri "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip" -OutFile "~/Downloads/FantasqueSansMono.zip"
+  ```
+2. Unzip
+3. Open .ttf files
+4. Install font
 
 Then, install modules from PSGallery, and create our Powershell profile.
 
@@ -65,36 +73,29 @@ Then, install modules from PSGallery, and create our Powershell profile.
 Install-Module -Name "oh-my-posh" -Scope CurrentUser -AllowPrerelease
 Install-Module -Name "Get-ChildItemColor" -Scope CurrentUser -AllowClobber
 
-cd ~
-nano $profile # Copy content from ./dotfiles/Microsoft.PowerShell_profile.ps1
-. $profile
+Copy-Item -Path "./dotfiles/Microsoft.PowerShell_profile.ps1" -Destination $profile
 ```
 
-### Setup bash profile
+Close and reopen iTerm2.
+
+### Golang
 
 ```powershell
-cd ~
-nano .bash_profile # Copy content from ./dotfiles/.bash_profile
-```
-
-### Git
-
-```bash
-brew install git
-brew install vcprompt
+brew install go
+go get github.com/j18e/shell-prompt
 ```
 
 ### Rectangle
 
 Open-Source alternative to Spectacle
 
-```bash
+```powershell
 brew cask install rectangle
 ```
 
 ### Alfred
 
-```bash
+```powershell
 brew cask install alfred
 ```
 
@@ -106,7 +107,7 @@ brew cask install alfred
 
 ### Firefox
 
-```bash
+```powershell
 brew cask install firefox
 ```
 
@@ -125,31 +126,20 @@ nvm install stable
 sudo npm install -g lite-server eslint
 ```
 
-### Setup project folder
-
-```bash
-mkdir ~/code
-```
-
-### Install Anonymous Pro Font
-
-```
-https://www.marksimonson.com/fonts/view/anonymous-pro
-```
-
 ### Visual Studio Code
 
-```bash
+```powershell
 brew cask install visual-studio-code
 ```
 
-1. Download "vs-code-extensions.txt"
-2. Run the following
-  ```bash
-  while read line; do code --install-extension "$line";done <vs-code-extensions.txt
-  ```
-3. Copy contents from vscode-settings.json to your settings.json
-4. Copy contents from vscode-keybindings.json to your keybindings.json
+#### Install extensions
+
+```powershell
+cd ~/code/macos-setup
+gc ./vs-code-extensions.txt | % { code --install-extension $_ }
+Copy-Item -Path "vscode-settings.json" -Destination "~/Library/Application Support/Code/User/settings.json"
+Copy-Item -Path "vscode-keybindings.json" -Destination "~/Library/Application Support/Code/User/keybindings.json"
+```
 
 ## Finder
 
