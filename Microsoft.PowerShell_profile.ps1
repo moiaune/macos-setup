@@ -3,15 +3,15 @@ using namespace System.Management.Automation.Language
 
 Import-Module -Name Get-ChildItemColor
 
-# ------------------------------------------------
-# PROMPT
-# ------------------------------------------------
+# --- PROMPT
 
 Set-PoshPrompt -Theme pure
 
-# ------------------------------------------------
-# PSREADLINE CONFIGURATIONS
-# ------------------------------------------------
+# --- ENVIRONMENT VARIABLES
+
+$env:PATH += ":$env:HOME/go/bin"
+
+# --- PSREADLINE CONFIGURATIONS
 
 Set-PSReadLineOption -PredictionSource History
 
@@ -142,9 +142,7 @@ Set-PSReadLineKeyHandler -Key '(', '{', '[' `
     }
 }
 
-# ------------------------------------------------
-# ALIASES
-# ------------------------------------------------
+# --- ALIASES
 
 function GoToCode { Set-Location -Path "~/code/github.com" }
 Set-Alias -Name cdcode -Value GoToCode
