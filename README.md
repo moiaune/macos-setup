@@ -49,6 +49,7 @@ iwr "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/sch
 5. Preferences -> Profiles -> Text -> Cursor -> Vertical Bar
 6. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
 7. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
+8. Preferences -> Appearance -> Dimming -> Dim inactive split panes (false)
 
 
 ### Install git and download project files
