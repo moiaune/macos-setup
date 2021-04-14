@@ -1,6 +1,6 @@
 # MacOS Setup
 
-My current MacOS setup, using Powershell as default shell.
+My current MacOS setup, using bash as default shell.
 
 ## Applications
 
@@ -20,24 +20,31 @@ brew update
 ### Install and set default shell
 
 ```bash
+brew install bash
 brew install powershell
 
 # Make sure both /usr/local/bin/bash and /usr/local/bin/pwsh is represented
 sudo nano /etc/shells
 
-# Change default shell to pwsh
-chsh -s /usr/local/bin/pwsh
+# Change default shell to bash
+chsh -s /usr/local/bin/bash
 ```
 
 Close and reopen terminal.
 
+### wget
+
+```bash
+brew install wget
+```
+
 ### iTerm2
 
-```powershell
+```bash
 brew cask install iterm2
-iwr "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Dracula%2B.itermcolors" -outfile "~/Downloads/Dracula+.itermcolors"
-iwr "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors" -outfile "~/Downloads/Gruvbox Dark.itermcolors"
-iwr "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Andromeda.itermcolors" -outfile "~/Downloads/Andromeda.itermcolors"
+wget -O  "~/Downloads/Dracula+.itermcolors" "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Dracula%2B.itermcolors"
+wget -O  "~/Downloads/Gruvbox Dark.itermcolors" "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors"
+wget -O  "~/Downloads/Andromeda.itermcolors" "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Andromeda.itermcolors"
 ```
 
 1. Preferences -> Appearance -> General -> Theme = Minimal
@@ -55,66 +62,84 @@ iwr "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/sch
 
 ### Install git and download project files
 
-```powershell
+```bash
 brew install git
 mkdir ~/code && cd ~/code
 git clone git@github.com:madsaune/macos-setup.git
 cd macos-setup
 ```
 
-### Setup Powershell profile and modules
+### Setup Bash profile
+
+#### Install font
 
 First, install `FantasqueSansMono` powerline font.
 
 1. Download font
-  ```powershell
-  iwr -Uri "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip" -OutFile "~/Downloads/FantasqueSansMono.zip"
+  ```bash
+  wget -O "~/Downloads/FantasqueSansMono.zip" "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip"
   ```
 2. Unzip
 3. Open .ttf files
 4. Install font
 
-Then, install modules from PSGallery, and create our Powershell profile.
+#### Install oh-my-posh
+
+```bash
+brew tap jandedobbeleer/oh-my-posh
+brew install oh-my-posh
+
+cd ~/code
+git clone git@github.com:madsaune/milbo-omp-theme.git
+```
+
+#### Install `.profile`
+```bash
+cp ./dotfiles/.profile ~/.profile
+```
+
+### Setup Powershell profile and modules
+
+Install modules from PSGallery, and create our Powershell profile.
 
 ```powershell
 Install-Module -Name "oh-my-posh" -Scope CurrentUser -AllowPrerelease
 Install-Module -Name "Get-ChildItemColor" -Scope CurrentUser -AllowClobber
 
-Copy-Item -Path "./Microsoft.PowerShell_profile.ps1" -Destination $profile
+Copy-Item -Path "./powershell/profile.ps1" -Destination $profile.CurrentUserAllHosts
 ```
 
 Close and reopen iTerm2.
 
 ### Golang
 
-```powershell
+```bash
 brew install go
-go get github.com/j18e/shell-prompt
 ```
 
 ### Rectangle
 
 Open-Source alternative to Spectacle
 
-```powershell
+```bash
 brew cask install rectangle
 ```
 
 ### Alfred
 
-```powershell
+```bash
 brew cask install alfred
 ```
 
 1. System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Disable "Show spotlight search"
-2. Alfred Preferences -> General -> Change hotkey to cmd+space 
+2. Alfred Preferences -> General -> Change hotkey to cmd+space
 3. Alfred Preferences -> General -> Launch Alfred at login
 4. Alfred Preferences -> Features -> Default Results -> Extras -> Check "Folder"
 5. Alfred Preferences -> Appearance -> Alfred macOS Dark
 
 ### Firefox
 
-```powershell
+```bash
 brew cask install firefox
 ```
 
@@ -135,29 +160,31 @@ sudo npm install -g lite-server eslint
 
 ### Visual Studio Code
 
-```powershell
+```bash
 brew cask install visual-studio-code
 ```
 
 #### Install extensions
 
-```powershell
-cd ~/code/macos-setup
-gc ./vs-code-extensions.txt | % { code --install-extension $_ }
-Copy-Item -Path "vscode-settings.json" -Destination "~/Library/Application Support/Code/User/settings.json"
-Copy-Item -Path "vscode-keybindings.json" -Destination "~/Library/Application Support/Code/User/keybindings.json"
+```bash
+cd ~/code/macos-setup/vscode
+
+while read line; do code --install-extension "$line";done < extensions.txt
+
+cp settings.json "~/Library/Application Support/Code/User/settings.json"
+cp keybindings.json "~/Library/Application Support/Code/User/keybindings.json"
 ```
 
 ### Other Applications
 
-```powershell
+```bash
 brew install spotify
 brew install insomnia
 brew install microsoft-teams
 brew install discord
 brew install keepassxc
 brew install time-out
-brew install terraform
+brew install terraform@0.14.6
 brew install azure-cli
 brew install google-chrome
 
