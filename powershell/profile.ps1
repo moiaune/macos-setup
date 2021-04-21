@@ -12,6 +12,7 @@ $env:PATH += ":$env:HOME/go/bin"
 
 # --- PSREADLINE CONFIGURATIONS
 Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
 
 Set-PSReadLineKeyHandler -Key '"', "'" `
     -BriefDescription SmartInsertQuote `
@@ -123,3 +124,9 @@ Set-Alias -Name gcmm -Value GitCommitAlias
 
 function GitStatusAll { git status -uall }
 Set-Alias -Name gsa -Value GitStatusAll
+
+function TerraformCheckFormatting { terraform fmt -check -recursive }
+Set-Alias -Name tcfmt -Value TerraformCheckFormatting
+
+function TerraformFormatAll { terraform fmt -recursive }
+Set-Alias -Name tfmt -Value TerraformFormatAll
