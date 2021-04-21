@@ -1,18 +1,16 @@
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
+# --- MODULES
 Import-Module -Name Get-ChildItemColor
 
 # --- PROMPT
-
-Set-PoshPrompt -Theme pure
+Set-PoshPrompt -Theme "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json"
 
 # --- ENVIRONMENT VARIABLES
-
 $env:PATH += ":$env:HOME/go/bin"
 
 # --- PSREADLINE CONFIGURATIONS
-
 Set-PSReadLineOption -PredictionSource History
 
 Set-PSReadLineKeyHandler -Key '"', "'" `
@@ -96,7 +94,7 @@ Set-PSReadLineKeyHandler -Key '"', "'" `
 
     # If cursor is at the start of a token, enclose it in quotes.
     if ($token.Extent.StartOffset -eq $cursor) {
-        if ($token.Kind -eq [TokenKind]::Generic -or $token.Kind -eq [TokenKind]::Identifier -or 
+        if ($token.Kind -eq [TokenKind]::Generic -or $token.Kind -eq [TokenKind]::Identifier -or
             $token.Kind -eq [TokenKind]::Variable -or $token.TokenFlags.hasFlag([TokenFlags]::Keyword)) {
             $end = $token.Extent.EndOffset
             $len = $end - $cursor
@@ -110,48 +108,15 @@ Set-PSReadLineKeyHandler -Key '"', "'" `
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert($quote)
 }
 
-Set-PSReadLineKeyHandler -Key '(', '{', '[' `
-    -BriefDescription InsertPairedBraces `
-    -LongDescription "Insert matching braces" `
-    -ScriptBlock {
-    param($key, $arg)
-
-    $closeChar = switch ($key.KeyChar) {
-        <#case#> '(' { [char]')'; break }
-        <#case#> '{' { [char]'}'; break }
-        <#case#> '[' { [char]']'; break }
-    }
-
-    $selectionStart = $null
-    $selectionLength = $null
-    [Microsoft.PowerShell.PSConsoleReadLine]::GetSelectionState([ref]$selectionStart, [ref]$selectionLength)
-
-    $line = $null
-    $cursor = $null
-    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
-    
-    if ($selectionStart -ne -1) {
-        # Text is selected, wrap it in brackets
-        [Microsoft.PowerShell.PSConsoleReadLine]::Replace($selectionStart, $selectionLength, $key.KeyChar + $line.SubString($selectionStart, $selectionLength) + $closeChar)
-        [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($selectionStart + $selectionLength + 2)
-    }
-    else {
-        # No text is selected, insert a pair
-        [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)$closeChar")
-        [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
-    }
-}
-
 # --- ALIASES
-
 function GoToCode { Set-Location -Path "~/code/github.com" }
-Set-Alias -Name cdcode -Value GoToCode
+Set-Alias -Name cgh -Value GoToCode
+
+function ListFilesAndFolders { Get-ChildItem -Path . }
+Set-Alias -Name ll -Value ListFilesAndFolders
 
 function ListAllFilesAndFolders { Get-ChildItem -Path . -Force }
-Set-Alias -Name ll -Value ListAllFilesAndFolders
-
-function OpenVSCodeInCurrentFolder { code . }
-Set-Alias -Name c -Value OpenVSCodeInCurrentFolder
+Set-Alias -Name la -Value ListAllFilesAndFolders
 
 function GitCommitAlias { git commit -m $args[0] }
 Set-Alias -Name gcmm -Value GitCommitAlias
