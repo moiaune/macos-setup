@@ -49,22 +49,21 @@ wget -O  "~/Downloads/Andromeda.itermcolors" "https://raw.githubusercontent.com/
 
 1. Preferences -> Appearance -> General -> Theme = Minimal
 2. Preferences -> Appearance -> Tabs -> Show tab even when there is only one tab
-2. Preferences -> Appearance -> Tabs -> Uncheck "Stretch tabs to fill bar"
-3. Preferences -> Profiles -> General -> Reuse previous session's directory
-4. Preferences -> Profiles -> Colors -> Color Presets -> Import -> Choose your .itermcolors file
-4. Preferences -> Profiles -> Colors -> Color Presets -> Choose color scheme
-5. Preferences -> Profiles -> Text -> Cursor -> Vertical Bar
-6. Preferences -> Profiles -> Text -> Cursor -> Blinking Cursor (true)
-7. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
-8. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
-9. Preferences -> Appearance -> Dimming -> Dim inactive split panes (false)
-
+3. Preferences -> Appearance -> Tabs -> Uncheck "Stretch tabs to fill bar"
+4. Preferences -> Profiles -> General -> Reuse previous session's directory
+5. Preferences -> Profiles -> Colors -> Color Presets -> Import -> Choose your .itermcolors file
+6. Preferences -> Profiles -> Colors -> Color Presets -> Choose color scheme
+7. Preferences -> Profiles -> Text -> Cursor -> Vertical Bar
+8. Preferences -> Profiles -> Text -> Cursor -> Blinking Cursor (true)
+9. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
+10. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
+11. Preferences -> Appearance -> Dimming -> Dim inactive split panes (false)
 
 ### Install git and download project files
 
 ```bash
 brew install git
-mkdir ~/code && cd ~/code
+mkdir ~/code/github.com/madsaune && cd ~/code/github.com/madsaune
 git clone git@github.com:madsaune/macos-setup.git
 cd macos-setup
 ```
@@ -76,9 +75,11 @@ cd macos-setup
 First, install `FantasqueSansMono` powerline font.
 
 1. Download font
-  ```bash
-  wget -O "~/Downloads/FantasqueSansMono.zip" "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip"
-  ```
+
+```bash
+wget -O "~/Downloads/FantasqueSansMono.zip" "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip"
+```
+
 2. Unzip
 3. Open .ttf files
 4. Install font
@@ -89,11 +90,12 @@ First, install `FantasqueSansMono` powerline font.
 brew tap jandedobbeleer/oh-my-posh
 brew install oh-my-posh
 
-cd ~/code
+cd ~/code/github.com/madsaune
 git clone git@github.com:madsaune/milbo-omp-theme.git
 ```
 
 #### Install `.profile`
+
 ```bash
 cp ./dotfiles/.profile ~/.profile
 ```
@@ -145,10 +147,11 @@ brew cask install firefox
 
 1. Go through settings
 2. Install following add-ons
-  * uBlock Origin
-  * Privacy Badger
-  * Stylus (add dark theme for github and wikipedia)
-  * Vue Devtools
+
+- uBlock Origin
+- Privacy Badger
+- Stylus (add dark theme for github and wikipedia)
+- Vue Devtools
 
 ### Node Version Manager (NVM) & Node/NPM
 
@@ -167,13 +170,36 @@ brew cask install visual-studio-code
 #### Install extensions
 
 ```bash
-cd ~/code/macos-setup/vscode
+cd ~/code/github.com/madsaune/macos-setup/vscode
 
 while read line; do code --install-extension "$line";done < extensions.txt
 
 cp settings.json "~/Library/Application Support/Code/User/settings.json"
 cp keybindings.json "~/Library/Application Support/Code/User/keybindings.json"
 ```
+
+### NeoVim
+
+#### Increase MacOS Key Repeat
+
+To avoid lag when navigating in NeoVim we must increase our key repeat.
+
+1. System Preferences -> Keyboard -> Key Repeat = 1 (a.k.a Fast)
+2. System Preferences -> Keyboard -> Delay Until Repat = 2 (a.k.a Short + 1)
+
+#### Install NeoVim
+
+```bash
+brew install neovim
+cd ~/code/github.com/madsaune/macos-setup/dotfiles/
+cp init.vim "~/.config/nvim/init.vim"
+
+# Install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+Then open `nvim` and run `:PlugInstall`.
 
 ### Other Applications
 
@@ -207,7 +233,7 @@ brew install azure-functions-core-tools@3
 
 1. System Preferences -> Dock -> Size -> Smallest
 2. System Preferences -> Dock -> Position on screen -> Right
-2. System Preferences -> Dock -> Check "Automatically hide and show the dock"
+3. System Preferences -> Dock -> Check "Automatically hide and show the dock"
 
 ## Desktop
 
