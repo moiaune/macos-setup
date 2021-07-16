@@ -58,6 +58,7 @@ wget -O  "~/Downloads/Andromeda.itermcolors" "https://raw.githubusercontent.com/
 9. Preferences -> Profiles -> Text -> Use built-in Powerline glyphs
 10. Preferences -> Profiles -> Keys -> Presets -> Natural Text Editing
 11. Preferences -> Appearance -> Dimming -> Dim inactive split panes (false)
+12. Preferences -> Appearance -> Windows -> Hide scrollbars (check)
 
 ### Install git and download project files
 
