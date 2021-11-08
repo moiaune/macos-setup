@@ -1,7 +1,7 @@
 HOST_NAME=carlin
 
 source ~/.nvm/nvm.sh
-nvm use lts/fermium
+nvm use lts/gallium
 shopt -s autocd
 shopt -s histappend
 
@@ -9,7 +9,9 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/Users/mm/go/bin
 export PATH="/usr/local/sbin:$PATH"
 
-export HISTSIZE=5000
+export PATH=$PATH:$HOME/.composer/vendor/bin
+
+export HISTSIZE=10000
 export HISTFILESIZE=10000
 
 bind '"\e[A": history-search-backward'

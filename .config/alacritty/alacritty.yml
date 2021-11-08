@@ -4,6 +4,9 @@
 env:
   TERM: xterm-256color
 
+scrolling:
+  history: 10000
+
 window:
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -85,7 +88,7 @@ font:
   # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
   offset:
     x: 0
-    y: 6
+    y: 0
 
   # Note: This requires RESTART
   # By default when you change the offset above you'll see an issue, where the texts are bottom

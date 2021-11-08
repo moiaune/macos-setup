@@ -109,10 +109,16 @@ Set-PSReadLineKeyHandler -Key '"', "'" `
     [Microsoft.PowerShell.PSConsoleReadLine]::Insert($quote)
 }
 
-# --- ALIASES
-function GoToCode { Set-Location -Path "~/code/github.com" }
-Set-Alias -Name cgh -Value GoToCode
+# --- Hide sensitive information from history
+Set-PSReadLineOption -AddToHistoryHandler {
+    param(
+        [string]$line
+    )
+    $sensitive = "password|asplaintext|token|key|secret"
+    return ($line -notmatch $sensitive)
+}
 
+# --- ALIASES
 function ListFilesAndFolders { Get-ChildItem -Path . }
 Set-Alias -Name ll -Value ListFilesAndFolders
 
