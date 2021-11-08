@@ -1,12 +1,39 @@
 // Place your key bindings in this file to override the defaults
 [
+  // TMUX BINDINGS
+  {
+    "key": "ctrl+a ,",
+    "command": "workbench.action.terminal.rename",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+a space",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+a c",
+    "command": "workbench.action.createTerminalEditorSide"
+  },
+  {
+    "key": "ctrl+a -",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+a '",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "cmd+r",
+    "command": "editor.action.rename"
+  },
+  {
+    "key": "cmd+i",
+    "command": "editor.action.peekTypeDefinition"
+  },
   {
     "key": "ctrl+shift+-",
     "command": "editor.toggleFold"
-  },
-  {
-    "key": "cmd+alt+n",
-    "command": "extension.advancedNewFile",
   },
   {
     "key": "cmd+1",
@@ -143,5 +170,23 @@
   {
     "key": "cmd+8",
     "command": "-workbench.action.focusEighthEditorGroup"
+  },
+  {
+    "key": "ctrl+a right",
+    "command": "workbench.action.positionPanelRight"
+  },
+  {
+    "key": "ctrl+a down",
+    "command": "workbench.action.positionPanelBottom"
+  },
+  {
+    "key": "ctrl+a '",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+shift+5",
+    "command": "-workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
   }
 ]
