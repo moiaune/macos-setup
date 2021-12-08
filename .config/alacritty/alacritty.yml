@@ -57,18 +57,18 @@ font:
   # UI for powerline & tmux bottom bar.
   normal:
     # Font name
-    family: 'JetBrains Mono'
+    family: 'Cascadia Code PL'
     # Font face
-    style: Regular
+    style: Roman
 
   # Bold font face
   bold:
-    family: 'JetBrains Mono'
+    family: 'Cascadia Code PL'
     style: Bold
 
   # Italic font face
   italic:
-    family: 'JetBrains Mono'
+    family: 'Cascadia Code PL'
     style: Italic
 
   # Bold italic font face
@@ -76,11 +76,11 @@ font:
   # italic & it just works. You may specifiy the bold italic version if it exists
   # for your font
   bold_italic:
-    family: 'JetBrains Mono'
+    family: 'Cascadia Code PL'
     style: Italic
 
   # Font size
-  size: 12.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing
@@ -88,7 +88,7 @@ font:
   # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
   offset:
     x: 0
-    y: 0
+    y: 4
 
   # Note: This requires RESTART
   # By default when you change the offset above you'll see an issue, where the texts are bottom
@@ -97,7 +97,7 @@ font:
   glyph_offset:
     x: 0
     # Keeping this as half of offset to vertically align the text in cursor
-    y: 3
+    y: 2
 
   # Better font rendering for mac
   use_thin_strokes: true
