@@ -8,8 +8,7 @@
   "editor.formatOnSave": true,
   "editor.fontLigatures": false,
   "editor.fontSize": 14,
-  // "editor.fontFamily": "Menlo",
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "Cascadia Code PL",
   "editor.fontWeight": "normal",
   "editor.tabSize": 4,
   "editor.cursorWidth": 1,
@@ -27,7 +26,8 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "editor.mouseWheelZoom": false,
-  "workbench.colorTheme": "PowerShell ISE",
+  "workbench.colorTheme": "GitHub Dark",
+  "editor.bracketPairColorization.enabled": true,
 
   // Terminal
   "terminal.integrated.fontSize": 13,
@@ -36,7 +36,6 @@
   // Telemetry
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
-  "now.telemetry.enableTelemetry": false,
 
   "workbench.sideBar.location": "left",
   "explorer.openEditors.visible": 0,
@@ -48,6 +47,8 @@
 
   // Extensions
   "prettier.singleQuote": true,
+  "prettier.printWidth": 120,
+  "prettier.semi": true,
   "eslint.validate": ["vue", "angular", "typescript", "javascript"],
   "vetur.format.defaultFormatter.js": "prettier-eslint",
   "vetur.format.enable": true,
@@ -95,7 +96,8 @@
   // Language specific settings
   "[javascript]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "HookyQR.beautify",
+    // "editor.defaultFormatter": "HookyQR.beautify",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
   "[json]": {
