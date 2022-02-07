@@ -3,9 +3,11 @@ using namespace System.Management.Automation.Language
 
 # --- MODULES
 Import-Module -Name Get-ChildItemColor
+Import-Module -Name oh-my-posh
 
 # --- PROMPT
-Set-PoshPrompt -Theme "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json"
+oh-my-posh --init --shell pwsh --config "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json" | Invoke-Expression
+# Set-PoshPrompt -Theme "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json"
 
 # --- ENVIRONMENT VARIABLES
 $env:PATH += ":$env:HOME/go/bin"
@@ -84,8 +86,7 @@ Set-PSReadLineKeyHandler -Key '"', "'" `
         if ($line[0..$cursor].Where{ $_ -eq $quote }.Count % 2 -eq 1) {
             # Odd number of quotes before the cursor, insert a single quote
             [Microsoft.PowerShell.PSConsoleReadLine]::Insert($quote)
-        }
-        else {
+        } else {
             # Insert matching quotes, move cursor to be in between the quotes
             [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$quote$quote")
             [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
@@ -136,3 +137,4 @@ Set-Alias -Name tcfmt -Value TerraformCheckFormatting
 
 function TerraformFormatAll { terraform fmt -recursive }
 Set-Alias -Name tfmt -Value TerraformFormatAll
+$(/usr/local/bin/brew shellenv) | Invoke-Expression
