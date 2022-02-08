@@ -1,18 +1,44 @@
 using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
-# --- MODULES
+# -----------------------------------------------------------------------------
+#     - MODULES -
+# -----------------------------------------------------------------------------
+
 Import-Module -Name Get-ChildItemColor
 Import-Module -Name oh-my-posh
 
-# --- PROMPT
-oh-my-posh --init --shell pwsh --config "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json" | Invoke-Expression
-# Set-PoshPrompt -Theme "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json"
+# -----------------------------------------------------------------------------
+#     - PROMPT -
+# -----------------------------------------------------------------------------
 
-# --- ENVIRONMENT VARIABLES
+oh-my-posh --init --shell pwsh --config "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json" | Invoke-Expression
+
+# -----------------------------------------------------------------------------
+#     - ENVIRONMENT VARIABLES -
+# -----------------------------------------------------------------------------
+
 $env:PATH += ":$env:HOME/go/bin"
 
-# --- PSREADLINE CONFIGURATIONS
+# -----------------------------------------------------------------------------
+#     - CUSTOM FUNCTIONS -
+# -----------------------------------------------------------------------------
+
+function New-Note {
+    param(
+        [Parameter()]
+        [string] $Name = "{0}.md" -f (New-Guid)
+    )
+
+    $path = Join-Path $env:HOME "notes" $Name
+
+    "$env:EDITOR $path" | Invoke-Expression
+}
+
+# -----------------------------------------------------------------------------
+#     - PSREADLINE CONFIGURATIONS -
+# -----------------------------------------------------------------------------
+
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
 

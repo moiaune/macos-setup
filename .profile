@@ -5,6 +5,9 @@ nvm use lts/gallium
 shopt -s autocd
 shopt -s histappend
 
+export EDITOR=nvim
+export VISUAL=code
+
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/Users/mm/go/bin
 export PATH="/usr/local/sbin:$PATH"
