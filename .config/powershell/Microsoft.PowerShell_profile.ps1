@@ -35,6 +35,22 @@ function New-Note {
     "$env:EDITOR $path" | Invoke-Expression
 }
 
+function Open-Note {
+    param(
+        [Parameter()]
+        [string] $Name = ""
+    )
+
+    $notesPath = Join-Path $env:HOME "notes"
+    $path = Join-Path $notesPath $Name
+
+    if (Test-Path $path) {
+        "nvim $path" | Invoke-Expression
+    } else {
+        "nvim $notesPath" | Invoke-Expression 
+    }
+}
+
 # -----------------------------------------------------------------------------
 #     - PSREADLINE CONFIGURATIONS -
 # -----------------------------------------------------------------------------
@@ -163,4 +179,5 @@ Set-Alias -Name tcfmt -Value TerraformCheckFormatting
 
 function TerraformFormatAll { terraform fmt -recursive }
 Set-Alias -Name tfmt -Value TerraformFormatAll
+
 $(/usr/local/bin/brew shellenv) | Invoke-Expression
