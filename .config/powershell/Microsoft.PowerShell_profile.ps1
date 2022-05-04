@@ -47,7 +47,7 @@ function Open-Note {
     if (Test-Path $path) {
         "nvim $path" | Invoke-Expression
     } else {
-        "nvim $notesPath" | Invoke-Expression 
+        "nvim $notesPath" | Invoke-Expression
     }
 }
 
@@ -157,7 +157,7 @@ Set-PSReadLineOption -AddToHistoryHandler {
     param(
         [string]$line
     )
-    $sensitive = "password|asplaintext|token|key|secret"
+    $sensitive = "password|asplaintext|token|secret"
     return ($line -notmatch $sensitive)
 }
 
