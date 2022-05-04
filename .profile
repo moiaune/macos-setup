@@ -1,7 +1,8 @@
-HOST_NAME=carlin
+#! /usr/bin/local/bash
 
 source ~/.nvm/nvm.sh
 nvm use lts/gallium
+
 shopt -s autocd
 shopt -s histappend
 
@@ -16,6 +17,11 @@ export PATH=$PATH:$HOME/.composer/vendor/bin
 
 export HISTSIZE=10000
 export HISTFILESIZE=10000
+
+if [[ -f ~/.secrets ]]
+then
+    source ~/.secrets
+fi
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
@@ -51,3 +57,5 @@ alias gcm='git commit -m'
 alias gsa='git status -uall'
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . "$HOME/.cargo/env"
+
+fortune | pokesay -fastest
