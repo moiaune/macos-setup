@@ -31,7 +31,8 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # OH_MY_POSH_THEMES_DIR=$(brew --prefix oh-my-posh)/themes
 OH_MY_POSH_THEMES_DIR="$HOME/code/github.com/madsaune/milbo-omp-theme"
-eval "$(oh-my-posh --init --shell bash --config "$OH_MY_POSH_THEMES_DIR/milbo.omp.json")"
+# eval "$(oh-my-posh --init --shell bash --config "$OH_MY_POSH_THEMES_DIR/milbo.omp.json")"
+eval "$(oh-my-posh init bash --config "$OH_MY_POSH_THEMES_DIR"/milbo.omp.json)"
 
 function mkcd()
 {
@@ -57,5 +58,3 @@ alias gcm='git commit -m'
 alias gsa='git status -uall'
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . "$HOME/.cargo/env"
-
-fortune | pokesay -fastest
