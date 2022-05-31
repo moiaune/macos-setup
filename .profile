@@ -39,6 +39,14 @@ function mkcd()
     mkdir "$1" && cd "$1" || return
 }
 
+function nnote() {
+    if [[ -z "$1" ]]; then
+       $EDITOR "$HOME/notes"
+    else
+        $EDITOR "$HOME/notes/$1"
+    fi
+}
+
 # -------
 # Aliases
 # -------
