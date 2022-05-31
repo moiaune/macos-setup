@@ -6,13 +6,12 @@ using namespace System.Management.Automation.Language
 # -----------------------------------------------------------------------------
 
 Import-Module -Name Get-ChildItemColor
-Import-Module -Name oh-my-posh
 
 # -----------------------------------------------------------------------------
 #     - PROMPT -
 # -----------------------------------------------------------------------------
 
-oh-my-posh --init --shell pwsh --config "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json" | Invoke-Expression
 
 # -----------------------------------------------------------------------------
 #     - ENVIRONMENT VARIABLES -
