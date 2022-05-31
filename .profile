@@ -56,5 +56,12 @@ alias vi="nvim"
 # ----------------------
 alias gcm='git commit -m'
 alias gsa='git status -uall'
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 . "$HOME/.cargo/env"
+
+# ----------------------
+# FZF AUTO COMPLETE && KEY BINDING
+# ----------------------
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
