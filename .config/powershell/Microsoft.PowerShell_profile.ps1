@@ -18,6 +18,8 @@ oh-my-posh init pwsh --config "~/code/github.com/madsaune/milbo-omp-theme/milbo.
 # -----------------------------------------------------------------------------
 
 $env:PATH += ":$env:HOME/go/bin"
+$env:EDITOR = "nvim"
+$env:VISUAL = "code"
 
 # -----------------------------------------------------------------------------
 #     - CUSTOM FUNCTIONS -
@@ -44,9 +46,9 @@ function Open-Note {
     $path = Join-Path $notesPath $Name
 
     if (Test-Path $path) {
-        "nvim $path" | Invoke-Expression
+        "$env:EDITOR $path" | Invoke-Expression
     } else {
-        "nvim $notesPath" | Invoke-Expression
+        "$env:EDITOR $notesPath" | Invoke-Expression
     }
 }
 
