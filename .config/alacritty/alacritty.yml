@@ -8,7 +8,7 @@ scrolling:
   history: 10000
 
 window:
-  opacity: .85
+  opacity: 1
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -82,7 +82,7 @@ font:
     style: Book
 
   # Font size
-  size: 16.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing
