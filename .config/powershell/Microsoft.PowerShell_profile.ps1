@@ -11,7 +11,7 @@ Import-Module -Name Get-ChildItemColor
 #     - PROMPT -
 # -----------------------------------------------------------------------------
 
-oh-my-posh init pwsh --config "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "~/code/github.com/madsaune/milbo-omp-theme/milbo.omp.yml" | Invoke-Expression
 
 # -----------------------------------------------------------------------------
 #     - ENVIRONMENT VARIABLES -
