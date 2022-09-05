@@ -6,6 +6,8 @@ using namespace System.Management.Automation.Language
 # -----------------------------------------------------------------------------
 
 Import-Module -Name Get-ChildItemColor
+Import-Module -Name PSFzf
+Import-Module -Name posh-git
 
 # -----------------------------------------------------------------------------
 #     - PROMPT -
@@ -58,6 +60,8 @@ function Open-Note {
 
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineKeyHandler -Chord "Ctrl+f" -Function ForwardWord
+
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
 Set-PSReadLineKeyHandler -Key '"', "'" `
     -BriefDescription SmartInsertQuote `
