@@ -6,9 +6,9 @@
   "explorer.compactFolders": false,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
-  "editor.fontLigatures": false,
+  "editor.fontLigatures": true,
   "editor.fontSize": 14,
-  "editor.fontFamily": "Cascadia Code PL",
+  "editor.fontFamily": "Fira Code Retina",
   "editor.fontWeight": "normal",
   "editor.tabSize": 4,
   "editor.cursorWidth": 1,
@@ -26,18 +26,24 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "editor.mouseWheelZoom": false,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "Gruvbox Dark Medium",
   "editor.bracketPairColorization.enabled": true,
+  "editor.copyWithSyntaxHighlighting": false,
 
   // Terminal
   "terminal.integrated.fontSize": 13,
-  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+  "terminal.integrated.defaultProfile.osx": "pwsh",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.windows": "pwsh",
+
+  // Window / Workbench
+  "workbench.panel.defaultLocation": "right",
+  "window.commandCenter": true,
 
   // Telemetry
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
-
-  "workbench.sideBar.location": "left",
   "explorer.openEditors.visible": 0,
   "files.autoSave": "off",
   "workbench.startupEditor": "newUntitledFile",
@@ -78,9 +84,6 @@
       }
     ]
   },
-
-  // Powershell
-  "powershell.codeFormatting.newLineAfterCloseBrace": false,
   "powershell.codeFormatting.useCorrectCasing": true,
   "powershell.codeFolding.enable": false,
   "powershell.integratedConsole.showOnStartup": false,
@@ -94,6 +97,7 @@
   },
 
   // Language specific settings
+  "python.analysis.typeCheckingMode": "strict",
   "[javascript]": {
     "editor.tabSize": 2,
     // "editor.defaultFormatter": "HookyQR.beautify",
@@ -149,5 +153,17 @@
   "liveServer.settings.donotVerifyTags": true,
   "liveServer.settings.donotShowInfoMsg": true,
   "explorer.confirmDragAndDrop": false,
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
+  "files.associations": {
+    "**/*infra-deploy.yaml": "azure-pipelines"
+  },
+  "git.terminalAuthentication": false,
+  "github.gitAuthentication": false,
+  "azureResourceManagerTools.parameterFiles": {
+    "/Users/mm/code/github.com/ncopmgmt/siem-light/logic_apps/eventhub_connection.json": "eventhub_connection.parameters.json"
+  },
+  "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+  "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+  "powershell.codeFormatting.whitespaceBetweenParameters": true,
+  "powershell.codeFormatting.newLineAfterCloseBrace": false
 }
