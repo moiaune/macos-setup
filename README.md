@@ -46,6 +46,7 @@ wget -O  "~/Downloads/Dracula+.itermcolors" "https://raw.githubusercontent.com/m
 wget -O  "~/Downloads/Gruvbox Dark.itermcolors" "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors"
 wget -O  "~/Downloads/Andromeda.itermcolors" "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Andromeda.itermcolors"
 wget -O "~/Downloads/catppuccin-mocha.itermcolors" "https://raw.githubusercontent.com/catppuccin/iterm/main/colors/catppuccin-mocha.itermcolors"
+wget -O "~/Downloads/rose-pine.itemcolors" "https://raw.githubusercontent.com/rose-pine/iterm/main/rose-pine.itermcolors"
 ```
 
 1. Preferences -> Appearance -> General -> Theme = Minimal
@@ -66,8 +67,8 @@ wget -O "~/Downloads/catppuccin-mocha.itermcolors" "https://raw.githubuserconten
 ```bash
 brew install git
 mkdir ~/code/github.com/madsaune && cd ~/code/github.com/madsaune
+git clone git@github.com:madsaune/dotfiles.git
 git clone git@github.com:madsaune/macos-setup.git
-cd macos-setup
 ```
 
 ### Setup Bash profile
@@ -99,7 +100,8 @@ git clone git@github.com:madsaune/milbo-omp-theme.git
 #### Install `.profile`
 
 ```bash
-cp ./dotfiles/.profile ~/.profile
+cd /Users/mm
+ln -s /Users/mm/code/github.com/madsaune/dotfiles/.profile .profile
 ```
 
 ### Setup Powershell profile and modules
@@ -109,8 +111,11 @@ Install modules from PSGallery, and create our Powershell profile.
 ```powershell
 Install-Module -Name "oh-my-posh" -Scope CurrentUser -AllowPrerelease
 Install-Module -Name "Get-ChildItemColor" -Scope CurrentUser -AllowClobber
+```
 
-Copy-Item -Path "./powershell/profile.ps1" -Destination $profile.CurrentUserAllHosts
+```bash
+cd ~/.config
+ln -s /Users/mm/code/github.com/madsaune/dotfiles/.config/powershell ./powershell
 ```
 
 Close and reopen iTerm2.
@@ -189,22 +194,34 @@ To avoid lag when navigating in NeoVim we must increase our key repeat.
 1. System Preferences -> Keyboard -> Key Repeat = 1 (a.k.a Fast)
 2. System Preferences -> Keyboard -> Delay Until Repat = 2 (a.k.a Short + 1)
 
-#### Install NeoVim
+#### Install Neovim
 
 ```bash
 brew install neovim
 
-cd ~/code/github.com/madsaune
-git clone git@github.com:madsaune/nvim.git && cd nvim
-
-./install.sh
-
-# Install vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+cd ~/.config
+ln -s /Users/mm/code/github.com/madsaune/dotfiles/.config/nvim ./nvim
 ```
 
 Then open `nvim` and run `:PlugInstall` and `:CocUpdate`.
+
+#### Install tmux
+
+```bash
+brew install tmux
+
+cd ~
+ln -s /Users/mm/code/github.com/madsaune/dotfiles/.tmux.conf .tmux.conf
+```
+
+#### Install alacritty
+
+```bash
+brew install alacritty
+
+cd ~/.config
+ln -s /Users/mm/code/github.com/madsaune/dotfiles/.config/alacritty ./alacritty
+```
 
 ### Other Applications
 
@@ -215,12 +232,12 @@ brew install microsoft-teams
 brew install discord
 brew install keepassxc
 brew install time-out
-brew install terraform@0.14.6
+brew install terraform
 brew install azure-cli
 brew install google-chrome
 
 brew tap azure/functions
-brew install azure-functions-core-tools@3
+brew install azure-functions-core-tools@4
 ```
 
 ## Finder
