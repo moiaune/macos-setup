@@ -134,17 +134,17 @@ Open-Source alternative to Spectacle
 brew cask install rectangle
 ```
 
-### Alfred
+### Raycast
 
 ```bash
-brew cask install alfred
+brew install --cask raycast
 ```
 
-1. System Preferences -> Keyboard -> Shortcuts -> Spotlight -> Disable "Show spotlight search"
-2. Alfred Preferences -> General -> Change hotkey to cmd+space
-3. Alfred Preferences -> General -> Launch Alfred at login
-4. Alfred Preferences -> Features -> Default Results -> Extras -> Check "Folder"
-5. Alfred Preferences -> Appearance -> Alfred macOS Dark
+Use cmd+space as hotkey.
+
+Install the following extensions:
+
+- Color Picker
 
 ### Firefox
 
