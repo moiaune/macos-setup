@@ -41,7 +41,7 @@ brew install wget
 ### iTerm2
 
 ```bash
-brew cask install iterm2
+brew install --cask iterm2
 wget -O  "~/Downloads/Dracula+.itermcolors" "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Dracula%2B.itermcolors"
 wget -O  "~/Downloads/Gruvbox Dark.itermcolors" "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Gruvbox%20Dark.itermcolors"
 wget -O  "~/Downloads/Andromeda.itermcolors" "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Andromeda.itermcolors"
@@ -131,7 +131,7 @@ brew install go
 Open-Source alternative to Spectacle
 
 ```bash
-brew cask install rectangle
+brew install --cask rectangle
 ```
 
 ### Raycast
@@ -149,7 +149,7 @@ Install the following extensions:
 ### Firefox
 
 ```bash
-brew cask install firefox
+brew install --cask firefox
 ```
 
 1. Go through settings
@@ -171,7 +171,7 @@ sudo npm install -g lite-server eslint
 ### Visual Studio Code
 
 ```bash
-brew cask install visual-studio-code
+brew install --cask visual-studio-code
 ```
 
 #### Install extensions
